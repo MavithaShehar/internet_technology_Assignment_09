@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>case01</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/nomalize.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <style>
+        body > section:first-child {
+            position: relative;
+            width: 700px;
+            top: 200px;
+            left: 0;
+            margin: auto;
+            display: flex;
+            justify-content: space-around;
+        }
+        body > section:nth-child(2) {
+            position: relative;
+            display: flex;
+            top: 250px;
+            left: 600px;
+        }
+        body > section:nth-child(2) > button {
+            margin-left: 20px;
+        }
+        .light {
+            border: black solid 2px;
+            width: 100px;
+            aspect-ratio: 1/1;
+            border-radius: 100%;
+            background: red; /* Initialize the lights as red */
+        }
+    </style>
+</head>
+<body>
+<section>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+</section>
+<section id="btn_panel">
+    <button id="startBtn" type="button">Start
+        <audio src="assets/adudio/audio.mp3"></audio>
+    </button>
+    <button id="stopBtn" type="button">Stop</button>
+
+
+</section>
+<script src="assets/lib/jquery.min.js"></script>
+<script>
+    var current_light = -1;
+    var current_direction = "RIGHT";
+    var light_count = 6;
+    var intervalID = null;
+
+    var light_1 ={
+        background: "red",
+    }
+
+    const updateLightPanel = () => {
+        $(".light").css("background", "white");
+
+        if (current_direction === "RIGHT") {
+            current_light++;
+            $(".light").eq(current_light).css("background", "red");
+            if (current_light === light_count - 1) {
+                current_direction = "LEFT";
+            }
+        } else {
+            current_light--;
+            $(".light").eq(current_light).css("background", "red");
+            if (current_light === 0) {
+                current_direction = "RIGHT";
+            }
+        }
+    }
+
+    $("#startBtn").on("click", () => {
+        if (intervalID === null) {
+            intervalID = setInterval(updateLightPanel, 100);
+
+        $("#audio")[0].play();
+
+        }
+
+
+    });
+
+    $("#stopBtn").on("click", () => {
+        clearInterval(intervalID);
+        intervalID = null;
+    });
+</script>
+</body>
+</html>
