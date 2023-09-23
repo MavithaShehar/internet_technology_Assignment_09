@@ -1,0 +1,25 @@
+body > section:first-child {
+    position: relative;
+    width: 700px;
+    top: 200px;
+    left: 0;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+body > section:nth-child(2) {
+    position: relative;
+    display: flex;
+    top: 250px;
+    left: 600px;
+}
+body > section:nth-child(2) > button {
+    margin-left: 20px;
+}
+.light {
+    border: black solid 2px;
+    width: 100px;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+    background: red; /* Initialize the lights as red */
+}
