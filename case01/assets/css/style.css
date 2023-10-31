@@ -18,8 +18,9 @@ body > section:nth-child(2) > button {
 }
 .light {
     border: black solid 2px;
-    width: 100px;
+    width: 60px;
     aspect-ratio: 1/1;
     border-radius: 100%;
+    margin-left: 10px;
     background: red; /* Initialize the lights as red */
 }
