@@ -16,6 +16,7 @@ body > section:nth-child(2) {
 body > section:nth-child(2) > button {
     margin-left: 20px;
 }
+
 .light {
     border: black solid 2px;
     width: 60px;
